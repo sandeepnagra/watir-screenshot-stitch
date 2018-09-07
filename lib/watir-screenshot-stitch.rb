@@ -219,5 +219,12 @@ module Watir
                       return (mq && mq.matches || (window.devicePixelRatio > 1)); }
         @browser.execute_script payload
       end
+
+    def insert_html2canvas
+      payload = "var s=window.document.createElement('script');\
+                 s.src='https://html2canvas.hertzen.com/dist/html2canvas.min.js';\
+                 window.document.head.appendChild(s);"
+      @browser.execute_script payload
+    end
   end
 end
